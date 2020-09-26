@@ -193,9 +193,10 @@ function registerButtonHandlers() {
             liff.shareTargetPicker([{
                 'type': 'text',
                 'text': e.target.textContent
-            }]).then(
-                document.getElementById('shareTargetPickerMessage').textContent = "Share target picker was launched."
-            ).catch(function (res) {
+            }]).then(()=>{
+                document.getElementById('shareTargetPickerMessage').textContent = "Share target picker was launched.";
+                liff.closeWindow();
+            }).catch(function (res) {
                 document.getElementById('shareTargetPickerMessage').textContent = "Failed to launch share target picker.";
             });
         }
