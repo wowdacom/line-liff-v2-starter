@@ -188,6 +188,7 @@ function registerButtonHandlers() {
     });
 
     document.getElementById('shareTargetPickerTalkRubbishGroup').addEventListener('click', function (e) {
+        console.log(e.target.textContent)
         if (liff.isApiAvailable('shareTargetPicker')) {
             liff.shareTargetPicker([{
                 'type': 'text',
@@ -198,7 +199,7 @@ function registerButtonHandlers() {
                 document.getElementById('shareTargetPickerMessage').textContent = "Failed to launch share target picker.";
             });
         }
-    });
+    }, false);
 
     // document.getElementById('shareTargetPicker').addEventListener('click', function () {
     //     if (liff.isApiAvailable('shareTargetPicker')) {
