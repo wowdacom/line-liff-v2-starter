@@ -14,6 +14,7 @@ window.onload = function() {
             })
             .then(function(jsonResponse) {
                 myLiffId = jsonResponse.id;
+                console.log(myLiffId)
                 initializeLiffOrDie(myLiffId);
             })
             .catch(function(error) {
