@@ -127,26 +127,14 @@ function registerButtonHandlers() {
         if (!liff.isInClient()) {
             sendAlertIfNotInClient();
         } else {
-            liff.sendMessages([
-                {
-                    type: 'text',
-                    text: 'Hello, World!'
-                }
-            ])
-            .then(() => {
-                console.log('message sent');
-            })
-            .catch((err) => {
-                console.log('error', err);
+            liff.sendMessages([{
+                'type': 'text',
+                'text': "You've successfully sent a message! Hooray!"
+            }]).then(function() {
+                window.alert('Message sent');
+            }).catch(function(error) {
+                window.alert('Error sending message: ' + error);
             });
-            // liff.sendMessages([{
-            //     'type': 'text',
-            //     'text': "You've successfully sent a message! Hooray!"
-            // }]).then(function() {
-            //     window.alert('Message sent');
-            // }).catch(function(error) {
-            //     window.alert('Error sending message: ' + error);
-            // });
         }
     });
 
@@ -199,11 +187,11 @@ function registerButtonHandlers() {
         });
     });
 
-    document.getElementById('shareTargetPicker').addEventListener('click', function () {
+    document.getElementById('shareTargetPickerTalkRubbishGroup').addEventListener('click', function (e) {
         if (liff.isApiAvailable('shareTargetPicker')) {
             liff.shareTargetPicker([{
                 'type': 'text',
-                'text': 'Hello, World!'
+                'text': e.target.textContent
             }]).then(
                 document.getElementById('shareTargetPickerMessage').textContent = "Share target picker was launched."
             ).catch(function (res) {
@@ -212,18 +200,31 @@ function registerButtonHandlers() {
         }
     });
 
-    document.getElementById('shareTargetPickerToSun').addEventListener('click', function () {
-        if (liff.isApiAvailable('shareTargetPicker')) {
-            liff.shareTargetPicker([{
-                'type': 'text',
-                'text': '午安陽!'
-            }]).then(
-                document.getElementById('shareTargetPickerMessage').textContent = "Share target picker was launched."
-            ).catch(function (res) {
-                document.getElementById('shareTargetPickerMessage').textContent = "Failed to launch share target picker.";
-            });
-        }
-    });
+    // document.getElementById('shareTargetPicker').addEventListener('click', function () {
+    //     if (liff.isApiAvailable('shareTargetPicker')) {
+    //         liff.shareTargetPicker([{
+    //             'type': 'text',
+    //             'text': 'Hello, World!'
+    //         }]).then(
+    //             document.getElementById('shareTargetPickerMessage').textContent = "Share target picker was launched."
+    //         ).catch(function (res) {
+    //             document.getElementById('shareTargetPickerMessage').textContent = "Failed to launch share target picker.";
+    //         });
+    //     }
+    // });
+
+    // document.getElementById('shareTargetPickerToSun').addEventListener('click', function () {
+    //     if (liff.isApiAvailable('shareTargetPicker')) {
+    //         liff.shareTargetPicker([{
+    //             'type': 'text',
+    //             'text': '午安陽!'
+    //         }]).then(
+    //             document.getElementById('shareTargetPickerMessage').textContent = "Share target picker was launched."
+    //         ).catch(function (res) {
+    //             document.getElementById('shareTargetPickerMessage').textContent = "Failed to launch share target picker.";
+    //         });
+    //     }
+    // });
     
 
     // login call, only when external browser is used

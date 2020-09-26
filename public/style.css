@@ -68,7 +68,8 @@ button {
     display: none;
 }
 
-#liffData {
+/* adjust after 20200926 */
+.hidden-element {
     display: none;
 }
 
